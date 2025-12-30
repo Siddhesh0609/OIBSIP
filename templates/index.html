@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background: white;
+            padding: 35px;
+            width: 380px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            font-size: 15px;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .reset {
+            background: #f44336;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>BMI Calculator</h2>
+
+    <form method="POST">
+        <input type="number" name="weight" placeholder="Weight (kg)" required>
+        <input type="number" name="height" placeholder="Height (cm)" required>
+        <button type="submit">Calculate BMI</button>
+    </form>
+
+    <form method="GET">
+        <button class="reset">Reset</button>
+    </form>
+
+    {% if bmi %}
+        <div class="result">
+            <p><strong>Your BMI:</strong> {{ bmi }}</p>
+            <p style="color:{{ color }};"><strong>Category:</strong> {{ category }}</p>
+            <p>{{ message }}</p>
+            <p><strong>Ideal Weight:</strong> {{ ideal_weight }}</p>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
